@@ -1,5 +1,7 @@
 # ContextSafe
 
+**English** · [Deutsch](README.de.md)
+
 **Deterministic, governed data processing with LLM agents (Claude + MCP + Agent Skills).**
 
 > The model interprets. A certified, deterministic artifact computes. A human approves. Every run leaves evidence.
@@ -7,6 +9,8 @@
 ContextSafe is a proof of concept (PoC) that answers one question:
 
 > *How can an LLM agent work with enterprise data without raw data entering the model context, and with every run being reproducible, tamper-evident and auditable?*
+
+> **New (2026-11):** the [Rule Workshop](rule-workshop/README.md), an MVP that addresses the open question behind this PoC: who creates and owns the certified artifact? The answer: the domain expert, who decides edge cases instead of reading code.
 
 ---
 
@@ -69,8 +73,8 @@ The same seven steps work whether the artifact is a SQL query, a forecast notebo
 
 ```
 contextsafe/
-├── README.md                          ← this file (scope, principle, approach)
-├── ROADMAP.md                         ← development items A–I with dates and status
+├── README.md, README.de.md            ← this file (scope, principle, approach), English and German
+├── ROADMAP.md                         ← development items A–J with dates and status
 ├── CHANGELOG.md                       ← dated project timeline
 ├── LICENSE                            ← MIT
 ├── docs/
@@ -85,10 +89,11 @@ contextsafe/
 ├── sql/q3_shipping_priority.sql       ← certified script (hash identical to the original)
 ├── skills/                            ← 6 Agent Skills (SKILL.md, German originals)
 ├── hashes/SHA256SUMS                  ← hashes of all certified artifacts in this repo
-└── scripts/verify.sh                  ← deterministic pre-flight (no LLM involved)
+├── scripts/verify.sh                  ← deterministic pre-flight (no LLM involved)
+└── rule-workshop/                     ← Rule Workshop (MVP): domain experts create and own rules
 ```
 
-> **Language note:** the six `SKILL.md` files are published in their original German. Translating them would change their hashes and invalidate the certification chain. All other content is English.
+> **Language note:** the six `SKILL.md` files are published in their original German. Translating them would change their hashes and invalidate the certification chain. All other content is English; the main documents also exist in German.
 >
 > **Redaction note:** one example email address in `skills/skill_send_html_email/SKILL.md` was replaced with `example.com`. That file's hash therefore differs from the vault original (`de8b95b1…b8d5` → `bf75bbc6…97f4`). `hashes/SHA256SUMS` and the reference contract use the published value.
 
