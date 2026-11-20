@@ -37,7 +37,7 @@ Engine            seals the content (SHA-256) and only then executes the rule, w
 
 ## Quick start
 
-Requirements: Python 3.9 or newer, standard library only. No installation.
+Requirements: Python 3.9 or newer, standard library only. No installation. The complete environment setup (Claude, Obsidian, mod, PostgreSQL, troubleshooting) is in [docs/setup.md](docs/setup.md).
 
 ```bash
 cd rule-workshop
@@ -91,6 +91,7 @@ Without Claude, the owner releases from a terminal: `python3 engine/regelwerk.py
 rule-workshop/
 ├── README.md, README.de.md
 ├── docs/concept.md, concept.de.md      ← the reasoning, alternatives, limits
+├── docs/setup.md, setup.de.md          ← environment setup in five levels, troubleshooting
 ├── Regeln/                             ← one note per rule: the system of record
 ├── Vorlagen/Regel-Vorlage.md           ← template for a new rule
 ├── Glossar.md                          ← the data and what it means to the business

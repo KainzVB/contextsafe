@@ -37,7 +37,7 @@ Engine        versiegelt den Inhalt (SHA-256) und führt die Regel erst dann aus
 
 ## Schnellstart
 
-Voraussetzung: Python 3.9 oder neuer, nur Standardbibliothek. Keine Installation.
+Voraussetzung: Python 3.9 oder neuer, nur Standardbibliothek. Keine Installation. Die vollständige Einrichtung (Claude, Obsidian, Mod, PostgreSQL, Fehlersuche) steht in [docs/setup.de.md](docs/setup.de.md).
 
 ```bash
 cd rule-workshop
@@ -91,6 +91,7 @@ Ohne Claude gibt der Owner im Terminal frei: `python3 engine/regelwerk.py freige
 rule-workshop/
 ├── README.md, README.de.md
 ├── docs/concept.md, concept.de.md      ← Begründung, Alternativen, Grenzen
+├── docs/setup.md, setup.de.md          ← Einrichtung in fünf Stufen, Fehlersuche
 ├── Regeln/                             ← eine Notiz je Regel: das System of Record
 ├── Vorlagen/Regel-Vorlage.md           ← Vorlage für eine neue Regel
 ├── Glossar.md                          ← die Daten und ihre fachliche Bedeutung
