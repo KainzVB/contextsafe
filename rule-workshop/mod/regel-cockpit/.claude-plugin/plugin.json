@@ -1,0 +1,6 @@
+{
+  "name": "regel-cockpit",
+  "version": "0.1.0",
+  "description": "ContextSafe Regelwerkstatt: Cockpit-Pane mit dem Stand aller Regeln und eine Sperre für direkten Datenbankzugriff",
+  "types": "./types/index.d.ts"
+}

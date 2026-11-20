@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "regelwerk": {
+      "command": "sh",
+      "args": ["-c", "exec python3 \"${CLAUDE_PROJECT_DIR:-.}/engine/mcp_server.py\""]
+    }
+  }
+}

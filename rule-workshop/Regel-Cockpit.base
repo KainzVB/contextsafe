@@ -1,0 +1,108 @@
+properties:
+  note.status:
+    displayName: Status
+  note.owner:
+    displayName: Owner
+  note.version:
+    displayName: Version
+  note.grenzfaelle_bestanden:
+    displayName: Grenzfälle
+  note.festigkeit:
+    displayName: Festigkeit %
+  note.offene_fragen:
+    displayName: Offene Fragen
+  note.freigegeben_am:
+    displayName: Freigegeben am
+  note.naechste_rezertifizierung:
+    displayName: Rezertifizierung
+  note.letzte_pruefung:
+    displayName: Geprüft am
+  note.letzter_lauf:
+    displayName: Letzter Lauf
+  note.regel:
+    displayName: Regel
+  note.ergebnis:
+    displayName: Ergebnis
+  note.zeilen:
+    displayName: Zeilen
+  note.zeitpunkt:
+    displayName: Zeitpunkt
+  note.ausgeloest_von:
+    displayName: Ausgelöst von
+  note.freigegeben_von:
+    displayName: Freigegeben von
+views:
+  - type: table
+    name: Alle Regeln
+    filters:
+      and:
+        - file.hasTag("typ/regel")
+    order:
+      - file.name
+      - status
+      - owner
+      - version
+      - grenzfaelle_bestanden
+      - festigkeit
+      - offene_fragen
+      - naechste_rezertifizierung
+      - letzter_lauf
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Handlungsbedarf
+    filters:
+      and:
+        - file.hasTag("typ/regel")
+        - note.status != "certified"
+    order:
+      - file.name
+      - status
+      - owner
+      - offene_fragen
+      - grenzfaelle_bestanden
+      - letzte_pruefung
+  - type: table
+    name: Rezertifizierung fällig
+    filters:
+      and:
+        - file.hasTag("typ/regel")
+        - note.naechste_rezertifizierung <= today()
+    order:
+      - file.name
+      - owner
+      - naechste_rezertifizierung
+      - freigegeben_am
+    sort:
+      - property: naechste_rezertifizierung
+        direction: ASC
+  - type: table
+    name: Läufe
+    filters:
+      and:
+        - note.typ == "lauf"
+    order:
+      - file.name
+      - regel
+      - version
+      - ergebnis
+      - zeilen
+      - ausgeloest_von
+    sort:
+      - property: zeitpunkt
+        direction: DESC
+  - type: table
+    name: Freigaben
+    filters:
+      and:
+        - file.hasTag("typ/freigabe")
+    order:
+      - file.name
+      - version
+      - freigegeben_von
+      - freigegeben_am
+      - naechste_rezertifizierung
+    sort:
+      - property: freigegeben_am
+        direction: DESC

@@ -18,6 +18,7 @@ Legend: ✅ done · 🟡 partly done · ⏳ open · 💡 idea (not yet spec-read
 | **G** | Skill threat self-assessment (ToxicSkills categories) | 2026-04-27 | ⏳ | — |
 | **H** | MCP connector migration + tool abstraction layer | 2026-09-27 | 🟡 migration ✅ 2026-09-27, re-certified 2026-10-25; abstraction layer open | — |
 | **I** | Deterministic orchestrator (LLM as a single step) | 2026-10-25 | ⏳ spike proposed | E, G |
+| **J** | Rule Workshop (self-service rule authoring) | 2026-11-11 | 🟡 MVP 2026-11-11, published 2026-11-20 | — |
 | **R** | Consistency backlog from Architecture Review v1 | 2026-05-14 | ⏳ S1–S7 open | — |
 
 > There is no item D in the original idea log.
@@ -106,6 +107,25 @@ Since 2026-09-27, also covers **connector maintenance status** as a supply-chain
 **Proposal:** move scheduling, gates, hashing, SQL execution, delivery and logging into a deterministic workflow engine (e.g. n8n). The LLM becomes a single, sandboxed step that only narrates the result rows. Process Contract, hashes and approver stay unchanged as the governance layer.
 
 **Done when:** pre-flight pass and a deliberately provoked mismatch-abort both run without an LLM in the control path.
+
+---
+
+## J: Rule Workshop (self-service rule authoring)
+*Proposed and prototyped 2026-11-11*
+
+**Problem:** the PoC certifies a script that IT wrote. The business rules live in the heads of domain experts, who can neither write nor review code. As long as the certified object is code, a central data team stays in the loop for every rule.
+
+**Approach:** certify the **decisions**, not the code. The expert writes the rule in plain language and decides edge cases. Claude writes sample data and SQL. A deterministic engine proves the SQL against every edge case, finds undecided questions with mutation probes, and seals the content after a human approval. Only sealed rules run. See the [concept](rule-workshop/docs/concept.md).
+
+- ✅ MVP in [`rule-workshop/`](rule-workshop/README.md): engine, MCP server (5 tools), 2 skills, Obsidian Bases cockpit, Claude mod, 3 rules, 15 tests.
+- ✅ One real approval and four logged runs (2026-11-11 to 2026-11-17).
+- ⏳ Run through the skills with a domain expert who has not seen the system.
+- ⏳ Signature instead of hash; second approver; cross-platform approval dialog; language-neutral rule format; more mutation probes (sorting, join type, missing conditions).
+- ⏳ Scheduled execution of sealed rules (shares the open question of item I).
+
+**Relation to other items:** touches A (cockpit), B (lifecycle assistant), C (collection to draft) and R (S1/S2/S3/S5 are handled by design for new use cases; the findings for the original pipeline stay open).
+
+**Done when:** a domain expert creates, changes and releases a rule in one session without help from IT, and a deliberately wrong edge case is caught before release.
 
 ---
 

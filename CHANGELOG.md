@@ -2,6 +2,12 @@
 
 All dates are ISO 8601. "Contract" refers to the Process Contract of use case `TPCH-Q3-001`.
 
+## 2026-11-20: Rule Workshop MVP published (roadmap item J)
+- New folder [`rule-workshop/`](rule-workshop/README.md), built 2026-11-11: domain experts write rules in plain language and decide edge cases; Claude proposes sample data and SQL; a deterministic engine proves the SQL against the edge cases, finds undecided questions with mutation probes, seals the content after a human approval dialog and runs only sealed rules.
+- Three rules on two data sources (SQLite demo data, PostgreSQL TPC-H). One rule is sealed (*Aktiver Kunde* v1, approved 2026-11-11). Four runs are logged: three successful, one refused before the approval.
+- Exercised: 15 automated tests (Python 3.9 and 3.14), MCP server and guard mod loaded in Claude Desktop, one real approval. Not yet exercised: the skills with a domain expert, the cockpit pane and the Obsidian Bases view, scheduled runs. See [concept](rule-workshop/docs/concept.md#evidence-and-limits).
+- The root README is now available in German ([README.de.md](README.de.md)); English stays the default. The PoC itself is unchanged.
+
 ## 2026-10-25: Re-certification (contract v0.8.0)
 - The drift in `skill_read_process_md` and `skill_send_html_email` was reviewed. The current content was approved as the new baseline; the cause of the drift cannot be reconstructed.
 - `skill_hashes` updated for 4 skills, `skill_hashes_certified_date` set, next recertification set to 2027-04-25.
