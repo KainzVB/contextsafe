@@ -104,7 +104,7 @@ Since 2026-09-27, also covers **connector maintenance status** as a supply-chain
 - a model substitution (Sonnet instead of Haiku),
 - an off-schedule execution (Sunday instead of Monday).
 
-**Proposal:** move scheduling, gates, hashing, SQL execution, delivery and logging into a deterministic workflow engine (e.g. n8n). The LLM becomes a single, sandboxed step that only narrates the result rows. Process Contract, hashes and approver stay unchanged as the governance layer.
+**Proposal:** move scheduling, gates, hashing, SQL execution, delivery and logging into a deterministic workflow engine. The LLM becomes a single, sandboxed step that only narrates the result rows. Process Contract, hashes and approver stay unchanged as the governance layer.
 
 **Done when:** pre-flight pass and a deliberately provoked mismatch-abort both run without an LLM in the control path.
 

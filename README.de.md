@@ -55,7 +55,7 @@ ContextSafe ist weniger eine Software als ein **Lebenszyklus-Muster**, das auf f
 ```
  1. ERKUNDEN     LLM sieht nur Schema/Metadaten, nie Daten
  2. KODIFIZIEREN Die Berechnung wird ein deterministisches Artefakt
-                 (SQL, dbt-Modell, Python, Alteryx-Workflow, API-Aufruf)
+                 (SQL, dbt-Modell, Python, API-Aufruf)
  3. VERTRAG      Ein lesbarer Process Contract bindet Artefakt, Skills,
                  Rollen, Empfänger, Zeitplan und Hashes
  4. ZERTIFIZIEREN Jedes ausführbare Teil hashen; ein Freigeber zeichnet ab
@@ -129,7 +129,7 @@ Das Skript berechnet jeden SHA-256 neu, vergleicht ihn mit dem Process Contract 
 - **Agent Skills sind nicht die Neuheit.** Anthropic hat sie im Oktober 2025 eingeführt, und „build skills, not agents“ war Anthropics eigene Botschaft Ende 2025. ContextSafe startete im März 2026 und *nutzt* Skills.
 - **Die Neuheit ist, Skills als zertifizierte, per Hash fixierte Artefakte zu behandeln**, innerhalb eines Governance-Lebenszyklus: fail-closed Gates, Freigeber, Rezertifizierung, Audit-Trail. Ende 2025 waren Versionierung, Abhängigkeitsverwaltung und Laufzeit-Vorhersagbarkeit offene Fragen. Branchen-Checklisten (z. B. OWASP Agentic Skills Top 10) fordern heute genau das: Inhalt per Hash fixieren, beim Laden neu prüfen, bei Änderung verweigern.
 - **Das Muster ist in Datenplattformen etabliert:** Snowflake *Verified Queries* und Databricks Genie *Trusted Assets* lassen ein LLM ebenfalls aus vorab freigegebenen, deterministischen Abfragen wählen. ContextSafe wendet dieselbe Idee eine Ebene höher an, auf die Anweisungen des Agents selbst.
-- **Ehrliche Einschränkung:** Für einen festen Wochenreport ist eine deterministische Workflow-Engine (z. B. n8n, Alteryx Server) mit einem einzigen LLM-Schritt für die Erzählung einfacher und zuverlässiger als ein LLM als Orchestrator. Siehe [ROADMAP](ROADMAP.md), Punkt **I**.
+- **Ehrliche Einschränkung:** Für einen festen Wochenreport ist eine deterministische Workflow-Engine mit einem einzigen LLM-Schritt für die Erzählung einfacher und zuverlässiger als ein LLM als Orchestrator. Siehe [ROADMAP](ROADMAP.md), Punkt **I**.
 
 ---
 

@@ -1,7 +1,7 @@
 {
   "verbindungen": {
     "abo_welt": { "art": "sqlite", "datei": "daten/abo_welt.sqlite" },
-    "tpch": { "art": "postgres-docker", "container": "n8n-db-1", "datenbank": "tpch", "benutzer": "readonly_user", "schema": "public" }
+    "tpch": { "art": "postgres-docker", "container": "tpch-postgres", "datenbank": "tpch", "benutzer": "readonly_user", "schema": "public" }
   },
   "ordner": { "regeln": "Regeln", "freigaben": "Protokoll/Freigaben", "laeufe": "Protokoll/Läufe" },
   "rezertifizierung_monate": 6,

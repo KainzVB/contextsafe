@@ -55,7 +55,7 @@ ContextSafe is less a piece of software than a **lifecycle pattern** that applie
 ```
  1. EXPLORE      LLM sees schema/metadata only, never data
  2. CODIFY       Computation becomes a deterministic artifact
-                 (SQL, dbt model, Python, Alteryx workflow, API call)
+                 (SQL, dbt model, Python, API call)
  3. CONTRACT     A human-readable Process Contract binds artifact, skills,
                  roles, recipients, schedule and hashes
  4. CERTIFY      Hash every executable piece; a human approver signs off
@@ -129,7 +129,7 @@ The script recomputes every SHA-256, compares it with the Process Contract and c
 - **Agent Skills are not the novelty.** Anthropic introduced them in October 2025, and "build skills, not agents" was Anthropic's own message in late 2025. ContextSafe started in March 2026 and *uses* skills.
 - **The novelty is treating skills as certified, hash-pinned artifacts** inside a governance lifecycle: fail-closed gates, approver, recertification, audit trail. In late 2025 the open questions were versioning, dependency management and runtime predictability. Industry checklists (e.g. OWASP Agentic Skills Top 10) now ask for exactly this: pin content by hash, re-verify on load, refuse on change.
 - **The pattern is mainstream in data platforms:** Snowflake *verified queries* and Databricks Genie *trusted assets* also let an LLM pick from pre-approved, deterministic queries. ContextSafe applies the same idea one level up, to the agent's own instructions.
-- **Honest limitation:** for a fixed weekly report, a deterministic workflow engine (e.g. n8n, Alteryx Server) with a single LLM step for narration is simpler and more reliable than an LLM orchestrator. See [ROADMAP](ROADMAP.md) item **I**.
+- **Honest limitation:** for a fixed weekly report, a deterministic workflow engine with a single LLM step for narration is simpler and more reliable than an LLM orchestrator. See [ROADMAP](ROADMAP.md) item **I**.
 
 ---
 

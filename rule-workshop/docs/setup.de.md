@@ -113,7 +113,7 @@ Die Regel *Top 10 Shipping Priorities* liest die Datenbank des ursprünglichen P
 | Einstellung | Wert in `engine/regelwerk.config.json` |
 |---|---|
 | Verbindungsart | `postgres-docker` |
-| Container | `n8n-db-1` (an den eigenen Containernamen anpassen) |
+| Container | `tpch-postgres` (an den eigenen Containernamen anpassen) |
 | Datenbank | `tpch` |
 | Benutzer | `readonly_user` (braucht `SELECT` auf die drei Tabellen) |
 | Schema | `public` |
